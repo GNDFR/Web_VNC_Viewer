@@ -152,9 +152,9 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleConnectButton.disabled = true;
 
         // Go 백엔드 WebSocket 주소 구성
-        // Render에서는 HTTP와 WebSocket이 같은 포트에서 제공됨.
-        // Go 서버의 `/vnc-proxy` 엔드포인트에 VNC 서버 정보 쿼리 파라미터로 전달
-        const wsUrl = `ws://${window.location.host}/vnc-proxy?host=${encodeURIComponent(host)}&port=${port}`;
+        // Render는 HTTPS를 사용하므로, WebSocket도 WSS를 사용해야 합니다.
+        const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+        const wsUrl = `${protocol}//${window.location.host}/vnc-proxy?host=${encodeURIComponent(host)}&port=${port}`;
 
         ws = new WebSocket(wsUrl);
         ws.binaryType = 'arraybuffer'; // 바이너리 데이터를 ArrayBuffer로 받음
