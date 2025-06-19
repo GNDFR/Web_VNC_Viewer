@@ -2,7 +2,7 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/RemoteGazerClient.tsx", // 실제 파일명이 이게 맞는지 꼭 확인!
+  entry: "./src/components/remote-gazer/RemoteGazerClient.tsx", // 실제 파일명이 이게 맞는지 꼭 확인!
   output: {
     path: path.resolve(__dirname, "public"),
     filename: "bundle.js",
