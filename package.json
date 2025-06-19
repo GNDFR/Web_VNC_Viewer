@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "build:client": "webpack --config webpack.config.js",
     "build:ts": "tsc -p tsconfig.json",
     "start": "node dist/server.js"
   },
